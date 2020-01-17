@@ -1,0 +1,88 @@
+ <div class="row mt-4">
+        <div class="col-lg-9 col-md-7 col-sm-10 col-11 mx-auto">
+          <div class="grid">
+            <div class="grid-body">
+              <h2 class="mb-4 text-center">Staff Registration</h2>
+              <form id="staff_entry">
+              <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="Staff_Name" placeholder="Member Name" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="Staff_mobile" placeholder="Mobile Number" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="Staff_email" placeholder="Email Address" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                       <select class="custom-select" name="Staff_Designation">
+                      <option disabled="" selected="true">Designation</option>
+                      <option value="2" data-toggle="tooltip" data-placement="left" title="specialist doctors who see patients at specific times">Doctor <span>(senior consultants)</span></option>
+                      <option value="3" data-toggle="tooltip" data-placement="left" title="senior doctors who supervise residents, interns and students">Doctor <span>(Registrars)</span></option>
+                      <option value="4" data-toggle="tooltip" data-placement="left" title="look after patients on the ward and are in training for specialisation">Doctor <span>(Residents)</span></option>
+                      <option value="5" data-toggle="tooltip" data-placement="left" title="have completed their studies and are now finishing their final year in hospital">Doctor <span>(Interns)</span></option>
+                      <option value="6" data-toggle="tooltip" data-placement="left" title="undergraduate medical students">Doctor <span>(Student Doctor)</span></option>
+                      <option value="7" data-toggle="tooltip" data-placement="left" title="runs the ward">Nurse <span>(Unit Manager)</span></option>
+                      <option value="8" data-toggle="tooltip" data-placement="left" title="helps the nurse unit manager to run the ward and acts as the manager when the nurse unit manager is off site">Nurse <span>(Associate Nurse Unit Manager)</span></option>
+                      <option value="9" data-toggle="tooltip" data-placement="left" title="highly skilled nurses with an advanced level of training">Nurse <span>(Nurse Practitioners)</span></option>
+                      <option value="10" data-toggle="tooltip" data-placement="left" title="provide a high level of day-to-day care and perform some minor procedures">Nurse <span>(Registered Nurse)</span></option>
+                      <option value="11" data-toggle="tooltip" data-placement="left" title="provide basic medical care under the supervision of more senior nurses.">Nurse <span>(Enrolled Nurses)</span></option>
+                      <option value="12">Pharmacists</option>
+                      <option value="13" data-toggle="tooltip" data-placement="left" title="take care of ward housekeeping">clinical assistants</option>
+                      <option value="14" data-toggle="tooltip" data-placement="left" title="bring meals and drinks">patient services assistants</option>
+                      <option value="15" data-toggle="tooltip" data-placement="left" title="take care of patient lifting and transport">porters</option>
+                      <option value="16" data-toggle="tooltip" data-placement="left" title="help with fundraising and ward visits">Volunteers</option>
+                      <option value="17" data-toggle="tooltip" data-placement="left" title="staff the ward reception desks.">Ward clerks</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+
+                    <div class="row">
+                <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
+                    <button type="submit" class="btn btn-primary btn-block" id="subbtn"> Submit </button>
+                  </div>
+                </div>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+
+       <script type="text/javascript">
+        $(document).ready(function() {
+
+  $('#staff_entry').on('submit', function(event) {
+    document.getElementById('subbtn').innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>';
+    $.ajax({
+      data : $('#staff_entry').serialize(),
+      type : 'POST',
+      url : '/staff-entry-submit'
+    })
+    .done(function(data) {
+
+      if (data.error) {
+        $('#staff_entry').replaceWith('<div id="staff_entry"><div class="patient-profile"><div class="user-profile"><div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper"><div class="display-avatar animated-avatar"><!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> --><h1 class="profile-img text-white" style="line-height: 1.2em;"><i class="mdi-key-remove"></i></h1></div><h3>Please try again</h3></div></div></div></div>');
+      }
+      else {
+        $('#staff_entry').replaceWith('<div id="staff_entry"><div class="patient-profile"><div class="user-profile"><div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper"><div class="display-avatar animated-avatar"><!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> --><h1 class="profile-img text-white" style="line-height: 1.2em;"><i class="mdi mdi-checkbox-marked-circle-outline"></i></h1></div><h3>Registration Successfull</h3></div></div></div></div>');
+      }
+
+    });
+
+    event.preventDefault();
+
+  });
+
+});
+      </script>

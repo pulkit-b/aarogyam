@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Doctor Dashboard | AAROGYAM</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../static/vendors/iconfonts/mdi/css/materialdesignicons.css" />
+    <link rel="stylesheet" href="../static/vendors/css/vendor.addons.css" />
+    <!-- endinject -->
+    <!-- vendor css for this page -->
+    <!-- End vendor css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="../static/css/shared/style.css" />
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="../static/css/demo_1/style.css">
+    <!-- Layout style -->
+    <link rel="shortcut icon" href="../static/images/favicon.png" />
+  </head>
+  
+  <body class="header-fixed">
+      <nav class="t-header">
+          <!-- Navbar Header-->
+          <nav class="t-header">
+  <div class="t-header-brand-wrapper">
+    <a href="index.html">
+      <img class="logo" src="../static/images/logo.png" alt="">
+      <img class="logo-mini" src="../static/images/favicon.png" alt="">
+    </a>
+  </div>
+  <div class="t-header-content-wrapper">
+    <div class="t-header-content">
+      <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
+        <i class="mdi mdi-menu"></i>
+      </button>
+      <form action="#" class="t-header-search-box">
+        <div class="input-group">
+          <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
+          <button class="btn btn-primary" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+        </div>
+      </form>
+      <ul class="nav ml-auto">
+      <!--   <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="notificationDropdown" data-toggle="dropdown" aria-expanded="false">
+            <i class="mdi mdi-bell-outline mdi-1x"></i>
+            <span class="notification-indicator notification-indicator-warning notification-indicator-ripple"></span>
+          </a>
+          <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="notificationDropdown">
+            <div class="dropdown-header">
+              <h6 class="dropdown-title">Notifications</h6>
+              <p class="dropdown-title-text">You have 4 unread notification</p>
+            </div>
+            <div class="dropdown-body">
+              <div class="dropdown-list">
+                <div class="icon-wrapper rounded-circle bg-inverse-primary text-primary">
+                  <h2>P</h2>
+                </div>
+                <div class="content-wrapper">
+                  <small class="name">Pulkit Batheja <span>(PIET16CE083)</span></small>
+                  <small class="content-text">17/12/2019 <span>13:15</span></small>
+                </div>
+              </div>
+              <div class="dropdown-list">
+                <div class="icon-wrapper rounded-circle bg-inverse-success text-success">
+                  <h2>S</h2>
+                </div>
+                <div class="content-wrapper">
+                  <small class="name">Shreya jain <span>(PIET16CE083)</span></small>
+                  <small class="content-text">17/12/2019 <span>13:15</span></small>
+                </div>
+              </div>
+              <div class="dropdown-list">
+                <div class="icon-wrapper rounded-circle bg-inverse-warning text-warning">
+                  <h2>T</h2>
+                </div>
+                <div class="content-wrapper">
+                  <small class="name">Tanvee gupta <span>(PIET16CE083)</span></small>
+                  <small class="content-text">17/12/2019 <span>13:15</span></small>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-footer">
+              <a href="#">View All</a>
+            </div>
+          </div>
+        </li> -->
+       <!--  <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="messageDropdown" data-toggle="dropdown" aria-expanded="false">
+            <i class="mdi mdi-message-outline mdi-1x"></i>
+            <span class="notification-indicator notification-indicator-primary notification-indicator-ripple"></span>
+          </a>
+          <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="messageDropdown">
+            <div class="dropdown-header">
+              <h6 class="dropdown-title">Messages</h6>
+              <p class="dropdown-title-text">You have 4 unread messages</p>
+            </div>
+            <div class="dropdown-body">
+              <div class="dropdown-list">
+                <div class="image-wrapper">
+                  <img class="profile-img" src="../static/images/profile/male/image_1.png" alt="profile image">
+                  <div class="status-indicator rounded-indicator bg-success"></div>
+                </div>
+                <div class="content-wrapper">
+                  <small class="name">Clifford Gordon</small>
+                  <small class="content-text">Lorem ipsum dolor sit amet.</small>
+                </div>
+              </div>
+              <div class="dropdown-list">
+                <div class="image-wrapper">
+                  <img class="profile-img" src="../static/images/profile/female/image_2.png" alt="profile image">
+                  <div class="status-indicator rounded-indicator bg-success"></div>
+                </div>
+                <div class="content-wrapper">
+                  <small class="name">Rachel Doyle</small>
+                  <small class="content-text">Lorem ipsum dolor sit amet.</small>
+                </div>
+              </div>
+              <div class="dropdown-list">
+                <div class="image-wrapper">
+                  <img class="profile-img" src="../static/images/profile/male/image_3.png" alt="profile image">
+                  <div class="status-indicator rounded-indicator bg-warning"></div>
+                </div>
+                <div class="content-wrapper">
+                  <small class="name">Lewis Guzman</small>
+                  <small class="content-text">Lorem ipsum dolor sit amet.</small>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-footer">
+              <a href="#">View All</a>
+            </div>
+          </div>
+        </li> -->
+       <!--  <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="appsDropdown" data-toggle="dropdown" aria-expanded="false">
+            <i class="mdi mdi-apps mdi-1x"></i>
+          </a>
+          <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
+            <div class="dropdown-header">
+              <h6 class="dropdown-title">Apps</h6>
+              <p class="dropdown-title-text mt-2">Authentication required for 3 apps</p>
+            </div>
+            <div class="dropdown-body border-top pt-0">
+              <a class="dropdown-grid">
+                <i class="grid-icon mdi mdi-jira mdi-2x"></i>
+                <span class="grid-tittle">Jira</span>
+              </a>
+              <a class="dropdown-grid">
+                <i class="grid-icon mdi mdi-trello mdi-2x"></i>
+                <span class="grid-tittle">Trello</span>
+              </a>
+              <a class="dropdown-grid">
+                <i class="grid-icon mdi mdi-artstation mdi-2x"></i>
+                <span class="grid-tittle">Artstation</span>
+              </a>
+              <a class="dropdown-grid">
+                <i class="grid-icon mdi mdi-bitbucket mdi-2x"></i>
+                <span class="grid-tittle">Bitbucket</span>
+              </a>
+            </div>
+            <div class="dropdown-footer">
+              <a href="#">View All</a>
+            </div>
+          </div>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="notificationDropdown" title="logout" data-toggle="dropdown" aria-expanded="false" onclick="logout();">
+            <i class="mdi mdi-logout mdi-1x"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navbar header -->
+      </nav>
+      <div class="page-body">
+          <div class="sidebar">
+              <!-- Sidebar Content-->
+              <div class="sidebar">
+  <div class="user-profile">
+    <div class="display-avatar animated-avatar">
+      <!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> -->
+      <h1 class="profile-img text-white" style="line-height: 1.2em;">S</h1>
+    </div>
+    <div class="info-wrapper">
+      <p class="user-name">{{username}}</p>
+      <h6 class="display-income">{{ userrelationshipnumber }}</h6>
+      <div class="btn btn-outline-primary btn-rounded mt-3">
+                          <!-- <i class="mdi mdi-bullseye"></i> --> View Profile</div>
+    </div>
+  </div>
+  <ul class="navigation-menu">
+    <li class="nav-category-divider">MAIN</li>
+    <li>
+      <a href="index.html">
+        <span class="link-title">Dashboard</span>
+        <i class="mdi mdi-gauge link-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
+        <span class="link-title">Extras</span>
+        <i class="mdi mdi-database-plus link-icon"></i>
+      </a>
+      <ul class="collapse navigation-submenu" id="sample-pages">
+        <li>
+          <a href="#" onclick="staffentry();">Add Staff Member</a>
+        </li>
+        <li>
+          <a href="#" onclick="roomentry();">Bed Entry</a>
+        </li>
+      </ul>
+    </li>
+    <!-- <li>
+      <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
+        <span class="link-title">UI Elements</span>
+        <i class="mdi mdi-bullseye link-icon"></i>
+      </a>
+      <ul class="collapse navigation-submenu" id="ui-elements">
+        <li>
+          <a href="pages/ui-components/buttons.html">Buttons</a>
+        </li>
+        <li>
+          <a href="pages/ui-components/tables.html">Tables</a>
+        </li>
+        <li>
+          <a href="pages/ui-components/typography.html">Typography</a>
+        </li>
+      </ul>
+    </li> -->
+    <li>
+      <a href="#">
+        <span class="link-title">Task Scheduler</span>
+        <i class="mdi mdi-clipboard-outline link-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="link-title">Todo List</span>
+        <i class="mdi mdi-chart-donut link-icon"></i>
+      </a>
+    </li>
+    <!-- <li>
+      <a href="pages/icons/material-icons.html">
+        <span class="link-title">Icons</span>
+        <i class="mdi mdi-flower-tulip-outline link-icon"></i>
+      </a>
+    </li> -->
+    <!-- <li class="nav-category-divider">DOCS</li>
+    <li>
+      <a href="docs/docs.html">
+        <span class="link-title">Documentation</span>
+        <i class="mdi mdi-asterisk link-icon"></i>
+      </a>
+    </li> -->
+  </ul>
+  <div class="sidebar-upgrade-banner">
+    <p class="text-gray">&copy; 2019 <b class="text-primary">AAROGYAM</b></p>
+    <a class="btn upgrade-btn" target="_blank" href="#">Visit Team</a>
+  </div>
+</div>
+
+<!-- Sidebar content -->
+          </div>
+          <div class="page-content-wrapper">
+              <div class="page-content-wrapper-inner">
+                  <div class="viewport-header">
+                      <!-- Page Header Content -->
+                  </div>
+                  <div class="content-viewport">
+                      <!-- Page contents here -->
+                       <h4 class="mb-4">Today Schedule</h4>
+                    <div class="row mt-4">
+                      <div class="col-md-3 col-sm-6 col-6 equel-grid">
+                <div class="grid">
+                  <div class="grid-body text-gray">
+                    <div class="d-flex justify-content-between">
+                      <p>72</p>
+                      <p><i class="mdi mdi-information-variant"></i></p>
+                    </div>
+                    <p class="text-black">Scheduled</p>
+                    <div class="wrapper w-50 mt-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                      <canvas height="13" id="stat-line_1" width="90" class="chartjs-render-monitor" style="display: block; width: 90px; height: 13px;"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-6 equel-grid">
+                <div class="grid">
+                  <div class="grid-body text-gray">
+                    <div class="d-flex justify-content-between">
+                      <p>23</p>
+                      <p><i class="mdi mdi-information-variant"></i></p>
+                    </div>
+                    <p class="text-black">Waiting</p>
+                    <div class="wrapper w-50 mt-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                      <canvas height="13" id="stat-line_2" width="90" class="chartjs-render-monitor" style="display: block; width: 90px; height: 13px;"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-6 equel-grid">
+                <div class="grid">
+                  <div class="grid-body text-gray">
+                    <div class="d-flex justify-content-between">
+                      <p>40</p>
+                      <p><i class="mdi mdi-information-variant"></i></p>
+                    </div>
+                    <p class="text-black">Engaged</p>
+                    <div class="wrapper w-50 mt-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                      <canvas height="13" id="stat-line_3" width="90" class="chartjs-render-monitor" style="display: block; width: 90px; height: 13px;"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-6 equel-grid">
+                <div class="grid">
+                  <div class="grid-body text-gray">
+                    <div class="d-flex justify-content-between">
+                      <p>120</p>
+                      <p><i class="mdi mdi-information-variant"></i></p>
+                    </div>
+                    <p class="text-black">Checkout</p>
+                    <div class="wrapper w-50 mt-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                      <canvas height="13" id="stat-line_4" width="90" class="chartjs-render-monitor" style="display: block; width: 90px; height: 13px;"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                    </div> 
+                    <!-- Staff Reg -->
+                    <div id="admin-links"></div>
+       
+  
+                
+                </div>
+              </div>
+          </div>
+      
+
+      <!-- Bed Details -->
+                      <!-- Page Cotents here -->
+              <!-- content viewport ends -->
+              <footer class="footer">
+                  <!-- Footer Element-->
+              </footer>
+          </div>
+          <!-- page content ends -->
+      </div>
+      <!--page body ends -->
+      <!-- plugins:js -->
+      <script src="../static/vendors/js/core.js"></script>
+      <script src="../static/vendors/apexcharts/apexcharts.min.js"></script>
+      <script src="../static/vendors/chartjs/Chart.min.js"></script>
+      <script src="../static/js/charts/chartjs.addon.js"></script>
+      <!-- endinject -->
+      <!-- build:js -->
+      <script src="../static/js/template.js"></script>
+      <script src="../static/js/dashboard.js"></script>
+      <script src="../static/js/selectsearch.js"></script>
+      <script src="../static/js/bootstrap-tagsinput.js"></script>
+
+      <!-- endbuild -->
+
+
+
+
+      <script type="text/javascript">
+        function staffentry(){
+      $(document).ready(function() {
+                    $('#admin-links').load('http://localhost:5000/staff_reg');
+
+});
+    }
+
+     function roomentry(){
+      $(document).ready(function() {
+                    $('#admin-links').load('http://localhost:5000/room_reg');
+
+});
+    }
+    function logout(){
+      window.location.href= "/logout";
+    }
+
+
+      </script>
+    
+
+  </body>
+  
+  </html>

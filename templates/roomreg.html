@@ -1,0 +1,165 @@
+    <!-- Staff REG -->
+                    <div class="row mt-4">
+        <div class="col-lg-12 col-md-7 col-sm-10 col-11 mx-auto">
+          <div class="grid">
+            <div class="grid-body">
+              <h2 class="mb-4 text-center">Bed Details</h2>
+              <div class="row">
+                <div class="col-12">
+                <div class="grid">
+                  <div class="grid-body">
+                    <div class="item-wrapper">
+
+                      <div class="form-group row d-none">
+      <div class="col-md-3 showcase_text_area">
+          <label for="inputEmail10">Add more row</label>
+      </div>
+      <div class="col-md-9 showcase_content_area">
+      <select id="room" class="custom-select">
+      <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select></div>
+  </div>
+  <form id="roomform">
+
+                        <table class="table table-hover table-responsive" id="roomTable">
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Room Type</th>
+                <th>Room Floor</th>
+                <th>Room Block</th>
+                <th>Bed Number (CSV)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr class="roomRow">
+            <td><input type="text" name ="roomnumber" class="form-control"></td>
+            <td><input type="text" name ="roomtype" class="form-control"></td>
+            <td><input type="text" name ="roomfloor" class="form-control"></td>
+            <td><input type="text" name ="roomblock" class="form-control"></td>
+            <td><input type="text" name ="bednumber" class="form-control" data-role="tagsinput"></td>
+            <td><div class="btn action-btn btn-outline-danger btn-rounded removeroom">
+                          <i class="mdi mdi-delete-forever"></i>
+                        </div></td>
+        </tr>
+        <tr id="addButtonRowroom">
+            <td colspan="4"><center><div class="btn social-icon-btn btn-outline-secondary btn-rounded addroom">
+                          <i class="mdi mdi-plus"></i>
+                        </div></center></td>
+        </tr>
+       
+</table>
+                <div class="row">
+                <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
+                    <button type="submit" class="btn btn-primary btn-block" id="subbtn"> Submit </button>
+                  </div>
+                </div>
+<p class="text-danger mt-2">*For <mark>private room, room number and bed number</mark> will be Same.</p>
+<p class="text-danger">*You can leave floor and block column (if not required).</p>
+</form>
+
+                </div>
+              </div>
+                
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bed Details -->
+                      <!-- Page Cotents here -->
+                  </div>
+             
+              </div>
+
+<script type="text/javascript">
+ var p = $("#room").val();
+var row = $(".roomRow");
+
+/* Functions */
+function getP(){
+  p = $("#room").val();
+}
+
+function addRow() {
+  row.clone(true, true).appendTo("#roomTable");
+}
+
+function removeRow(button) {
+  button.closest("tr").remove();
+}
+/* Doc ready */
+$(".addroom").on('click', function () {
+  getP();
+  if($("#roomTable tr").length < 17) {
+    addRow();
+    var i = Number(p)+1;
+    $("#room").val(i);
+  }
+  $(this).closest("tr").appendTo("#roomTable");
+  if ($("#roomTable tr").length === 3) {
+    $(".removeroom").hide();
+  } else {
+    $(".removeroom").show();
+  }
+});
+$(".removeroom").on('click', function () {
+  getP();
+  if($("#roomTable tr").length === 3) {
+    //alert("Can't remove row.");
+    $(".removeroom").hide();
+  } else if($("#roomTable tr").length - 1 ==3) {
+    $(".removeroom").hide();
+    removeRow($(this));
+    var i = Number(p)-1;
+    $("#room").val(i);
+  } else {
+    removeRow($(this));
+    var i = Number(p)-1;
+    $("#room").val(i);
+  }
+});
+$("#room").change(function () {
+  var i = 0;
+  p = $("#room").val();
+  var rowCount = $("#roomTable tr").length - 2;
+  if(p > rowCount) {
+    for(i=rowCount; i<p; i+=1){
+      addRow();
+    }
+    $("#roomTable #addButtonRowroom").appendTo("#roomTable");
+  } else if(p < rowCount) {
+  }
+});
+
+</script>    
+<script type="text/javascript">
+  $(document).ready(function() {
+
+  $('#roomform').on('submit', function(event) {
+    document.getElementById('subbtn').innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>';
+    $.ajax({
+      data : $('#roomform').serialize(),
+      type : 'POST',
+      url : '/room_registration'
+    })
+    .done(function(data) {
+
+      if (data.error) {
+        $('#roomform').replaceWith('<div id="roomform"><div class="patient-profile"><div class="user-profile"><div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper"><div class="display-avatar animated-avatar"><!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> --><h1 class="profile-img text-white" style="line-height: 1.2em;"><i class="mdi-key-remove"></i></h1></div><h3>Please try again</h3></div></div></div></div>');
+      }
+      else {
+        $('#roomform').replaceWith('<div id="roomform"><div class="patient-profile"><div class="user-profile"><div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper"><div class="display-avatar animated-avatar"><!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> --><h1 class="profile-img text-white" style="line-height: 1.2em;"><i class="mdi mdi-checkbox-marked-circle-outline"></i></h1></div><h3>Registration Successfull</h3></div></div></div></div>');
+      }
+
+    });
+
+    event.preventDefault();
+
+  });
+
+});
+</script>

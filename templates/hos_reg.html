@@ -1,0 +1,139 @@
+<div class="row">
+        <div class="col-lg-9 col-md-7 col-sm-10 col-11 mx-auto">
+          <div class="grid">
+            <div class="grid-body">
+              <h2 class="mb-4 text-center">Register</h2>
+              <form id="reg_hospital">
+              <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_name" placeholder="Hospital Name" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_mobile" placeholder="Licence Number" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_licence" placeholder="Mobile Number" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_email" placeholder="Email Id" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_admin" placeholder="Administrator Name" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_address" placeholder="Address" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-4 col-md-5 col-sm-6 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <select class="custom-select" name="hos_state">
+                      <option disabled="" selected="true">State</option>
+                                       <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir ">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option disabled="">Union Teritory</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Dadar and Nagar Haveli"> Dadar and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Puducherry">Puducherry</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-6 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_city" placeholder="City" />
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-5 col-sm-6 col-12 mx-auto form-wrapper">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="hos_pincode" placeholder="Pincode" />
+                    </div>
+                  </div>
+                </div>
+                    <div class="row">
+                <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
+                    <button type="submit" class="btn btn-primary btn-block" id="subbtn"> Register </button>
+                  </div>
+                </div>
+              </form>
+                  <div class="signup-link">
+                    <p>Have an account. </p>
+                    <a href="#" onclick="lurl()">Sign In</a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+<script>
+  
+  $(document).ready(function() {
+
+  $('#reg_hospital').on('submit', function(event) {
+    document.getElementById('subbtn').innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>';
+    $.ajax({
+      data : $('#reg_hospital').serialize(),
+      type : 'POST',
+      url : '/hospital_registration'
+    })
+    .done(function(data) {
+
+      if (data.error) {
+        $('#reg_hospital').replaceWith('<div id="reg_hospital"><div class="patient-profile"><div class="user-profile"><div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper"><div class="display-avatar animated-avatar"><!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> --><h1 class="profile-img text-white" style="line-height: 1.2em;"><i class="mdi-key-remove"></i></h1></div><h3>Please try again</h3></div></div></div></div>');
+      }
+      else {
+        $('#reg_hospital').replaceWith('<div id="reg_hospital"><div class="patient-profile"><div class="user-profile"><div class="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto form-wrapper"><div class="display-avatar animated-avatar"><!-- <img class="profile-img img-lg rounded-circle" src="../static/images/profile/male/image_1.png" alt="profile image"> --><h1 class="profile-img text-white" style="line-height: 1.2em;"><i class="mdi mdi-checkbox-marked-circle-outline"></i></h1></div><h3>Registration Successfull</h3></div></div></div></div>');
+      }
+
+    });
+
+    event.preventDefault();
+
+  });
+
+});
+</script>

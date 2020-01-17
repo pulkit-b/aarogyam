@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login | AAROGYAM</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../static/vendors/iconfonts/mdi/css/materialdesignicons.css" />
+    <link rel="stylesheet" href="../static/vendors/css/vendor.addons.css" />
+    <!-- endinject -->
+    <!-- vendor css for this page -->
+    <!-- End vendor css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../static/css/shared/style.css" />
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="../static/css/demo_1/style.css">
+    <!-- Layout style -->
+    <link rel="shortcut icon" href="../static/images/favicon.png" />
+  </head>
+  <body>
+    <div class="authentication-theme auth-style_1">
+      <div class="row">
+        <div class="col-12 logo-section">
+          <a href="../../index.html" class="logo">
+            <img src="../static/images/logo.png" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div id="lr-form">
+      <div class="row">
+        <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
+          <div class="grid">
+            <h2 class="mb-4 text-center">Login</h2>
+            <div class="grid-body">
+              <div class="row">
+                <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
+                  <form id="login_form">
+                    <div class="form-group input-rounded">
+                      <input type="text" class="form-control" name="urn_no" placeholder="Username" />
+                    </div>
+                    <div class="form-group input-rounded">
+                      <input type="password" class="form-control" name="pwd" placeholder="Password" />
+                    </div>
+                    <div class="form-inline">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="form-check-input" />Remember me <i class="input-frame"></i>
+                        </label>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="login-btn"> Login </button>
+                  </form>
+                  <div class="signup-link">
+                    <p>Register your hospital. </p>
+                    <a href="#" onclick="lurl();">Here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+           </div>
+           <div id="rl-form"></div>
+      <div class="auth_footer">
+        <p class="text-muted text-center">© AAROGYAM 2020</p>
+      </div>
+    </div>
+    <!--page body ends -->
+    <!-- SCRIPT LOADING START FORM HERE /////////////-->
+    <!-- plugins:js -->
+    <script src="../static/vendors/js/core.js"></script>
+    <script src="../static/vendors/js/vendor.addons.js"></script>
+    <!-- endinject -->
+    <!-- Vendor Js For This Page Ends-->
+    <!-- Vendor Js For This Page Ends-->
+    <!-- build:js -->
+    <script src="../static/js/template.js"></script>
+    <!-- endbuild -->
+
+    <!-- internal Js -->
+    <!-- Form Change -->
+    <script type="text/javascript">
+     function lurl(){
+      $(document).ready(function() {
+        if (document.getElementById('lr-form')) {
+
+                if (document.getElementById('lr-form').style.display == 'none') {
+                    document.getElementById('lr-form').style.display = 'block';
+                    document.getElementById('rl-form').style.display = 'none';
+                }
+                else {
+                    document.getElementById('lr-form').style.display = 'none';
+                    document.getElementById('rl-form').style.display = 'block';
+                    $('#rl-form').load('http://localhost:5000/hos_reg');
+                }
+            }
+
+});
+    }
+    // form change
+
+    $(document).ready(function() {
+
+  $('#login_form').on('submit', function(event) {
+    document.getElementById('login-btn').innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>';
+    $.ajax({
+      data : $('#login_form').serialize(),
+      type : 'POST',
+      url : '/loginsubmit'
+    })
+    .done(function(data) {
+      console.log(data.success)
+           if (data.success == '1') {
+        window.location.href= "/admin";
+      }
+      else if(data.success == '2'){
+        window.location.href= "/doctor";
+      }
+      else if(data.success == '3'){
+        window.location.href= "/reception";
+      }
+      else {
+       document.getElementById('login-btn').innerHTML = 'Inavlid Relationship number/Password';
+      }
+
+    })
+    .fail(function(xhr, err) { 
+
+    var responseTitle= $(xhr.responseText).filter('title').get(0);
+     document.getElementById('login-btn').innerHTML = formatErrorMessage(xhr, err); 
+    });
+    event.preventDefault();
+
+  });
+
+});
+
+    function formatErrorMessage(jqXHR, exception) {
+
+    if (jqXHR.status === 0) {
+        return ('Not connected.\nPlease verify your network connection.');
+    } else if (jqXHR.status == 404) {
+        return ('The requested page not found. [404]');
+    } else if (jqXHR.status == 500) {
+        return ('Internal Server Error [500].');
+    } else if (exception === 'parsererror') {
+        return ('Requested JSON parse failed.');
+    } else if (exception === 'timeout') {
+        return ('Time out error.');
+    } else if (exception === 'abort') {
+        return ('Ajax request aborted.');
+    } else {
+        return ('Uncaught Error.\n' + jqXHR.responseText);
+    }
+}
+    </script>
+
+
+    <!-- internal js -->
+  </body>
+</html>
